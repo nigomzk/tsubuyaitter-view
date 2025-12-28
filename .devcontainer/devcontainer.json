@@ -1,0 +1,27 @@
+{
+    "name": "nextjs-dev",
+    "dockerComposeFile": "../docker-compose.dev.yml",
+    "service": "app",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "antigravity": {
+            "agent": {
+                "mode": "agent-driven"
+            }
+        },
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "bradlc.vscode-tailwindcss"
+            ]
+        }
+    },
+    "forwardPorts": [
+        3000,
+        5433,
+        6379,
+        9000,
+        9001
+    ],
+    "postCreateCommand": "npm install"
+}

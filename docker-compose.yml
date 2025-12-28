@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  # Next.js Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tsubuyaitter-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+      - LOG_OUTPUT=logs/application.log
+    volumes:
+      - ./logs:/app/logs
