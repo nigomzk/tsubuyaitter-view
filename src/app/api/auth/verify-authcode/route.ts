@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
         }
 
     } catch (error) {
-        console.error('Verify Authcode error:', error);
+        console.error({ err: error }, '認証コード検証エラー');
         return NextResponse.json({ code: "9", message: 'Internal Server Error' }, { status: 500 });
     }
 }

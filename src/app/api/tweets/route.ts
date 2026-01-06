@@ -131,7 +131,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ code: "0", message: 'Timeline retrieved', data });
 
     } catch (error) {
-        console.error('タイムライン取得エラー:', error);
+        console.error({ err: error }, 'タイムライン取得エラー:');
         return NextResponse.json({ code: "9", message: 'Internal Server Error' }, { status: 500 });
     }
 }

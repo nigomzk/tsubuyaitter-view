@@ -45,7 +45,7 @@ export async function GET(req: NextRequest) {
         });
 
     } catch (error) {
-        logger.error('プロフィール取得APIエラー:' + error);
+        logger.error({ err: error }, 'プロフィール取得APIエラー');
         return NextResponse.json({ code: "9", message: 'Internal Server Error' }, { status: 500 });
     }
 }

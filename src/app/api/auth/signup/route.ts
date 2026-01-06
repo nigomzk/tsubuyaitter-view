@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ code: "0", message: 'アカウントを作成しました。' });
 
     } catch (error) {
-        logger.error('サインアップエラー:' + error);
+        logger.error({ err: error }, 'サインアップエラー');
         return NextResponse.json({ code: "9", message: 'Internal Server Error' }, { status: 500 });
     }
 }

@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ code: "0", message: '認証コードを送信しました。' });
 
     } catch (error) {
-        logger.error('認証コード送信エラー:' + error);
+        logger.error({ err: error }, '認証コード送信エラー');
         return NextResponse.json({ code: "9", message: 'Internal Server Error' }, { status: 500 });
     }
 }

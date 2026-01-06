@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ is_unique: isUnique });
 
     } catch (error) {
-        logger.error('ユーザー名重複チェックエラー:' + error);
+        logger.error({ err: error }, 'ユーザー名重複チェックエラー');
         return NextResponse.json({ code: "9", message: 'Internal Server Error' }, { status: 500 });
     }
 }

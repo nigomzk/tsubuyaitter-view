@@ -41,7 +41,7 @@ export async function GET() {
         // レスポンス返却
         return NextResponse.json(responseBody, { status: 200 });
     } catch (error) {
-        console.error('Failed to fetch sidebar menu:', error);
+        console.error({ err: error }, 'サイドメニューバー項目取得エラー');
         return NextResponse.json(
             { error: 'Internal Server Error' },
             { status: 500 }

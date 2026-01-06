@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ code: "0", message: 'ログインしました。' });
 
     } catch (error) {
-        logger.error('Login error:' + error);
+        logger.error({ err: error }, 'ログインエラー');
         return NextResponse.json({ code: "9", message: 'Internal Server Error' }, { status: 500 });
     }
 }

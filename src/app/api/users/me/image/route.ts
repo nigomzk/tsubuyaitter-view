@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ code: "0", message: 'Profile image updated', data: { url: imageUrl } });
 
     } catch (error) {
-        logger.error('Upload error:' + error);
+        logger.error({ err: error }, 'プロフィール画像更新エラー');
         return NextResponse.json({ code: "9", message: 'Internal Server Error' }, { status: 500 });
     }
 }
