@@ -116,6 +116,11 @@ export async function GET(req: NextRequest) {
             }
         });
 
+        // DBにデータが存在しない場合、0件データを返却
+        if (!tweets) {
+            return NextResponse.json({ code: "0", message: 'Timeline retrieved', data: [] });
+        }
+
         // キャッシュDBに呟きIDリストを保存
         await redis.del(CACHED_KEY.TWEETS);
         await redis.lpush(CACHED_KEY.TWEETS, ...tweets.map(t => t.id));
